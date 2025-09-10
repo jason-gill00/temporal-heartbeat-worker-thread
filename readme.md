@@ -22,11 +22,11 @@ The discussion of this issue can be found here: [Temporal Slack Thread](https://
    ``` 
 4. Start a workflow:
    ```bash
-   ts-node src/client.ts
+   ts-node src/startAndAwaitWorkflow.ts
    ``` 
 
-## Resoution 
-The heartbeat timeout issue was resolved by instantiating the AsyncCompletionClient inside the activity and using it to mark the activity as complete:
+## Resolution 
+The heartbeat timeout issue was resolved by instantiating the AsyncCompletionClient [inside the activity](https://github.com/jason-gill00/temporal-heartbeat-worker-thread/blob/main/src/activities/testActivity.ts) and using it to mark the activity as complete:
    ```
    await client.complete(taskToken, {});
    ``` 

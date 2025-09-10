@@ -6,7 +6,7 @@ export const testActivity = async () => {
   const taskToken = activityInfo().taskToken;
   const client = new AsyncCompletionClient();
 
-  const worker = new Worker(require.resolve('./heartbeat'));
+  const worker = new Worker(require.resolve('./heartbeatWorker'));
   
   try {
     worker.postMessage({ taskToken });
